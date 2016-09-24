@@ -9,15 +9,16 @@ export default Ember.Component.extend({
 
     items.forEach((item) => {
       console.log(item);
-      let membersInfo = item.data.users;
+      let membersInfo = item.get('users').get('content').currentState;
       let members = '';
 
       if (Array.isArray(membersInfo)) {
         membersInfo.forEach((member) => {
-          members += `<img src="${member}" class="avatar" />`;
+          console.log(member._data);
+          members += `<img src="${member._data.photoUrl}" class="avatar" />`;
         });
       } else {
-        members += `<img src="${membersInfo}" class="avatar" />`;
+        members += `<img src="${member._data.photoUrl}" class="avatar" />`;
       }
 
       let output = `
@@ -36,7 +37,7 @@ export default Ember.Component.extend({
               ${item.data.address}
             </div>
             <div class="quantity">
-              <span class="fa fa-users"></span> <span>${item[4]}</span>
+              <span class="fa fa-users"></span> <span>${item.data.quantity}</span>
             </div>
           </div>
 

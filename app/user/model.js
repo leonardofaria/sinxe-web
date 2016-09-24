@@ -7,5 +7,6 @@ export default DS.Model.extend({
   photoUrl: DS.attr('string'),
   bio: DS.attr('string'),
   occupation: DS.attr('number'),
-  events: DS.hasMany('event')
+  events: DS.hasMany('event'),
+  chosenEvent: DS.attr('string')
 });
