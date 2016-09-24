@@ -21,7 +21,7 @@ export default Ember.Route.extend({
         // console.log("Photo URL: "+data.currentUser.photoURL);
 
         const user = users.filter(function (el) {
-          return el.get('email') === data.currentUser.email;
+          return el.get('uid') === data.currentUser.uid;
         });
 
         if (user.length === 0) {
