@@ -5,20 +5,24 @@ export default Ember.Route.extend({
     this.store.findAll('user');
     return this.store.findAll('event');
   },
+
   actions: {
     selectChoice(itemID) {
-      const currentUserId = this.get('session').get('currentUser').uid;
-      console.log(currentUserId);
-      console.log(itemID);
-      var user = this.store.query('user', {
-        equalTo: currentUserId
+      const currentUser = this.get('session').get('currentUser');
+      var userslist = this.store.peekAll('user');
+      console.log(userslist);
+      const user = userslist.filter(function (el) {
+        return el.get('uid') === currentUser.uid;
       });
-      var itemSelected = this.store.query('event', {
-        equalTo: itemID
-      });
-      console.log(itemSelected);
-      console.log(user);
-      user.get('events').addObject()
+      console.log(user[0]);
+      var items = this.store.peekAll('event');
+      const itemSelected = items.filter((item) => {
+        return item.get('id') === itemID;
+      })
+      console.log(itemSelected[0]);
+
+      user[0].get('events').addObject(itemSelected[0]);
+      user[0].save();
     }
   }
 
