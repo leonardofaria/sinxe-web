@@ -13,6 +13,8 @@ module.exports = function(defaults) {
   // jtinder
   app.import('vendor/jquery.transform2d.js');
   app.import('vendor/jquery.jTinder.js');
+  app.import('vendor/timedropper.min.js');
+  app.import('vendor/datedropper.min.js');
 
   //
   // If you need to use different assets in different
