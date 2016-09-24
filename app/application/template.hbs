@@ -1,0 +1,9 @@
+{{#if session.isAuthenticated}}
+  Logged in as {{session.currentUser.displayName}}
+  <a {{action "signOut"}}>Sign out</a>
+  {{outlet}}
+{{else}}
+  <a {{action "signIn" "facebook"}}>Sign in with Facebook</a>
+{{/if}}
+
+{{outlet}}

@@ -13,6 +13,17 @@ module.exports = function(environment) {
       }
     },
 
+    firebase: {
+      apiKey: 'AIzaSyBykxURuWy43EO7p7AJDTNQqNl-WtJhqic',
+      authDomain: 'sinxe-d61e7.firebaseapp.com',
+      databaseURL: 'https://sinxe-d61e7.firebaseio.com',
+      storageBucket: 'sinxe-d61e7.appspot.com',
+    },
+
+    torii: {
+      sessionServiceName: 'session'
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
