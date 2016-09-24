@@ -17,3 +17,16 @@
     <button {{action "publishEvent"}}>Publish</button>
   </li>
 </ul>
+
+<div class="test-place-autocomplete-container" data-google-auto="{{googleAuto}}">
+  {{place-autocomplete-field
+    value=model.address
+    handlerController=this
+    inputClass='place-autocomplete--input'
+    focusOutCallback="done"
+    placeChangedCallback="placeChanged"
+    placeholder="Restaurant Name"
+    types='establishment'
+    withGeoLocate= true
+  }}
+</div>
