@@ -1,9 +1,33 @@
-{{#if session.isAuthenticated}}
-  Logged in as {{session.currentUser.displayName}}
-  <a {{action "signOut"}}>Sign out</a>
-  {{outlet}}
-{{else}}
-  <a {{action "signIn" "facebook"}}>Sign in with Facebook</a>
-{{/if}}
+{{sidebar-menu}}
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
 
-{{outlet}}
+<div class="overlay"></div>
+
+<nav class="navigation menu">
+  <ul>
+  {{#if session.isAuthenticated}}
+    <li><a {{action "signOut"}}>Sign out ({{session.currentUser.displayName}})</a></li>
+  {{else}}
+    <li><a {{action "signIn" "facebook"}}>Sign in with Facebook</a></li>
+  {{/if}}
+  <li>{{link-to 'Tinder' 'tinder'}}</li>
+  <li>{{link-to 'Profile' 'profile'}}</li>
+  </ul>
+</nav>
+
+<label for="nav-trigger" class="menu-btn">
+  <a class="button">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+</label>
+
+<div class="site-wrap">
+  <header>
+    <h1>SINXE</h1>
+  </header>
+
+  {{outlet}}
+</div>

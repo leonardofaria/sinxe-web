@@ -1,0 +1,187 @@
+$menu_width: 250px;
+$menu_background: #f6f6f6;
+$menu_background_overlay: rgba(38, 38, 38, 0.7);
+$button_color: $white;
+$button_width: 15px;
+
+body {
+  /* Without this, the body has excess horizontal scroll when the menu is open */
+  overflow-x: hidden;
+}
+
+.navigation {
+  /* critical sizing and position styles */
+  width: 0;
+  overflow: hidden;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transition: width 0.25s ease-in-out;
+
+  ul {
+    background: #f6f6f6;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: $menu_width;
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.overlay {
+  background: $menu_background_overlay;
+  content: " ";
+  height: 100%;
+  position: absolute;
+  right: 0;
+  width: 0;
+  top: 0;
+  z-index: 99;
+  // transition: all 0.25s ease-in-out;
+
+  &.active {
+    width: 100%;
+  }
+}
+
+/* Site Wrapper - Everything that isn't navigation */
+.site-wrap {
+  /* Critical position and size styles */
+  min-height: 100%;
+  min-width: 100%;
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+}
+
+/* Nav Trigger */
+.nav-trigger {
+  /* critical styles - hide the checkbox input */
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* Make the Magic Happen */
+.nav-trigger ~ label, .site-wrap {
+  transition: left 0.25s ease-in-out;
+}
+
+.nav-trigger:checked ~ label {
+  left: calc(#{$menu_width} - #{$button_width * 3});
+}
+
+.nav-trigger:checked ~ .navigation {
+  width: $menu_width;
+}
+
+label.menu-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 101;
+  left: $button_width;
+  top: $button_width;
+
+  height: $button_width * 2;
+  width: $button_width * 2;
+  cursor: pointer;
+
+  .button {
+    width: $button_width;
+    height: $button_width;
+    position: relative;
+    transform: rotate(0deg);
+    cursor: pointer;
+
+    span {
+      display: block;
+      position: absolute;
+      height: $button_width / 5;
+      width: 100%;
+      background: $button_color;
+      border-radius: $button_width / 5;
+      left: 0;
+      transform: rotate(0deg);
+      transition: all .25s ease-in-out;
+
+      &:nth-child(1) {
+        top: 0px;
+      }
+
+      &:nth-child(2), &:nth-child(3) {
+        top: $button_width / 5 * 2;
+      }
+
+      &:nth-child(4) {
+        top: $button_width / 5 * 4;
+      }
+    }
+
+    &.open {
+      span {
+        &:nth-child(1) {
+          top: $button_width / 5 * 2;
+          width: 0%;
+          left: 50%;
+        }
+
+        &:nth-child(2) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+
+        &:nth-child(4) {
+          top: $button_width / 5 * 2;
+          width: 0%;
+          left: 50%;
+        }
+      }
+    }
+  }
+}
+
+
+.navigation {
+  ul {
+    background: $semi-dark;
+    padding-top: 60px;
+
+    li {
+      border-bottom: 1px solid $dark;
+      transition: background 0.25s;
+
+      a {
+        color: $text;
+        cursor: pointer;
+        display: block;
+        font-size: 0.85rem;
+        padding: 10px 15px;
+        text-decoration: none;
+        transition: color 0.25s;
+      }
+
+      &:hover {
+        background: $dark;
+
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@keyframes expand{
+  0%{
+    transform:scale(0)
+  }
+
+  100%{
+    transform:scale(0.75)
+  }
+
+}
+
+@-webkit-keyframes expand{
+  0%{
+    -webkit-transform:scale(0)
+  }
+
+  100%{
+    -webkit-transform:scale(0.85)
+  }
+
+}
+
+.pulseLoader {
+  display:inline-block;
+  width:36px;
+  height:36px;
+  border-radius: 50%;
+  background: rgba($brand-color, 0.8);
+  position:relative;
+
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 90;
+
+  &:after{
+    content:'';
+    display:inline-block;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:rgba(255,255,255,1);
+    -moz-animation:expand .8s infinite alternate;
+    -o-animation:expand .8s infinite alternate;
+    -webkit-animation:expand .8s infinite alternate;
+    animation:expand .8s infinite alternate
+  }
+}
