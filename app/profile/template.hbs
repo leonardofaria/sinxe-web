@@ -1,10 +1,17 @@
-<select value={{title}} id="title">
-  <option value="" hidden>Position</option>
-  {{#each positionList as |position index|}}
-    <option value={{index}} selected={{if (is-equal title position.name) 'selected' ''}}>{{position.name}}</option>
-  {{/each}}
-</select>
+<div class="form">
+  <img src="{{avatar}}" class="avatar center">
 
-{{textarea value=bio placeholder="Bio"}}
+  <div class="select">
+    <select onchange={{action (mut model.occupation) value="target.value"}}>
+      <option value="" hidden>Position</option>
+      {{#each positionList as |position index|}}
 
-<button {{action "updateUser"}}>Save</button>
+        <option value={{math index "+" 1}} selected={{if (is-equal model.occupation (math index "+" 1)) 'selected' ''}}>{{position.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  {{textarea value=model.bio placeholder="Bio"}}
+
+  <button {{action "updateUser"}} class="btn">Save</button>
+</div>

@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   didInsertElement: function() {
+    let self = this;
     let items = this.get('items');
     console.log(items);
 
@@ -53,8 +54,8 @@ export default Ember.Component.extend({
       },
       // like callback
       onLike: function (item) {
-        console.log($(item).data('id'));
-
+        //console.log($(item).data('id'));
+        self.actions.selectChoice(self, $(item).data('id'));
         // set the status text
         Ember.$('#status').html('Like image ' + (item.index()+1));
       },
@@ -69,5 +70,13 @@ export default Ember.Component.extend({
       e.preventDefault();
       Ember.$(".tinderslide").jTinder(Ember.$(this).attr('class'));
     });
+  },
+
+  actions: {
+    selectChoice(self, itemID) {
+      //console.log(itemID);
+      //console.log(self);
+      self.sendAction('selectChoice', itemID);
+    }
   }
  });
