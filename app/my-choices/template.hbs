@@ -1,7 +1,23 @@
-{{outlet}}
-MY CHOICE PAGE
+<div class="choices-list">
 {{#each chosenEvents as |event|}}
-  <div>{{event.restaurantName}}</div>
-  <div>{{event.address}}</div>
-  <div>{{event.category}}</div>
+  <div class="card">
+    <div class="img" style="background-image: url({{event.imageUrl}})"></div>
+
+    <div class="event">
+      <h2>{{event.restaurantName}}</h2>
+      <div class="members">
+        {{members}}
+      </div>
+    </div>
+
+    <div class="event-details">
+      <div class="description">
+        {{event.address}}
+      </div>
+      <div class="quantity">
+        <span class="fa fa-users"></span> <span>5</span>
+      </div>
+    </div>
+  </div>
 {{/each}}
+</div>
