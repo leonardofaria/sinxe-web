@@ -12,12 +12,10 @@ export default Ember.Route.extend({
       startAt: Date.now()/1000
     });
 
-
     return Ember.RSVP.hash({
       user: user,
       events: events
     });
-
 
   },
   actions: {

@@ -28,6 +28,9 @@ export default Ember.Route.extend({
           return true;
         });
 
+        var newChat = this.store.createRecord('chat');
+        newChat.save();
+
         var newEvent = this.store.createRecord('event', {
           restaurantName: $(".pac-input").val(),
           address: $(".address-input").val(),
@@ -36,7 +39,8 @@ export default Ember.Route.extend({
           imageUrl: $('.image-input').prop('src'),
           placeId: $('#place-id').val(),
           category: $(".category-input").val(),
-          user: user[0]
+          user: user[0],
+          chat: newChat
         });
         newEvent.save().then(function() {
           user[0].get('events').addObject(newEvent);

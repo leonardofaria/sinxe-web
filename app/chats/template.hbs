@@ -1,0 +1,14 @@
+{{outlet}}
+<div class="messages-container">
+  <ul id='messages'>
+    {{#each chatMessage as |message|}}
+    <li>
+      <h4>{{message.name}}</h4>
+      <span>{{message.message}}</span>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+
+<input id='text-input'>
+<button id='send' {{action 'sendMessage'}}>Send</button>
