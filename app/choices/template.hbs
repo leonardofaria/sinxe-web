@@ -2,4 +2,14 @@
   <span class="fa fa-plus"></span>
 {{/link-to}}
 
+<div class="select" style="position:absolute;">
+  <select class="category-input" value="target.value">
+    <option value="" hidden>Category</option>
+    {{#each categories as |category index|}}
+
+      <option value=category>{{category}}</option>
+    {{/each}}
+  </select>
+</div>
+
 {{j-stack items=model.events selectChoice='selectChoice'}}
