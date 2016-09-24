@@ -25,15 +25,6 @@ export default Ember.Route.extend({
       })
       itemSelected[0].get('users').addObject(user[0]);
       itemSelected[0].save();
-
-
-//       store.findRecord('post', 1).then(function(post) {
-//   post.get('title'); // => "Rails is Omakase"
-//
-//   post.set('title', 'A new post');
-//
-//   post.save(); // => PUT to '/posts/1'
-// });
     }
   }
 
