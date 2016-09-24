@@ -9,8 +9,10 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('events');
   this.route('profile');
-  this.route('tinder');
+  this.route('choices');
 
+  this.route('my-choices');
+  this.route('create-event');
 });
 
 export default Router;
