@@ -41,7 +41,7 @@ body {
   background: $menu_background_overlay;
   content: " ";
   height: 100%;
-  position: absolute;
+  position: fixed;
   right: 0;
   width: 0;
   top: 0;
@@ -89,7 +89,7 @@ label.menu-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   z-index: 101;
   left: $button_width;
   top: $button_width;
