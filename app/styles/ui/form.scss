@@ -11,9 +11,13 @@ textarea:focus {
 
 .form {
   margin: 0 auto;
-  padding: 0 10px;
-  max-width: 320px;
+  padding: 0;
   text-align: center;
+
+  h2 {
+    font-weight: normal;
+    margin: 20px auto 30px;
+  }
 
   .avatar {
     display: block;
@@ -25,6 +29,7 @@ textarea:focus {
     border-radius: 5px;
     font-size: 0.75rem;
     margin-bottom: 20px;
+    max-width: 320px;
     padding: 10px;
     width: 100%;
     transition: border 0.25s;
@@ -40,6 +45,7 @@ textarea:focus {
     border: 1px solid $dark;
     border-radius: 5px;
     margin-bottom: 20px;
+    max-width: 320px;
     overflow: hidden;
     padding: 0;
     position: relative;
@@ -88,6 +94,28 @@ textarea:focus {
     }
   }
 
+  .preview {
+    display: block;
+    margin: -20px auto 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s;
+
+    &.visible {
+      max-height: 500px;
+    }
+
+    h3 {
+      font-weight: normal;
+      margin: 10px auto 15px;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto 5px;
+    }
+  }
+
   .btn {
     background: $brand-color;
     border: 1px solid $white;
@@ -95,7 +123,7 @@ textarea:focus {
     color: $white;
     display: inline-block;
     font-size: 0.85rem;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     padding: 10px 20px;
     text-transform: uppercase;
   }

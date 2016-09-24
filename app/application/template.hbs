@@ -10,14 +10,10 @@
   {{else}}
     <li><a {{action "signIn" "facebook"}}>Sign in with Facebook</a></li>
   {{/if}}
-  <li>{{link-to 'Choices' 'choices'}}</li>
+  <li>{{link-to 'Add new event' 'create-event'}}</li>
+  <li>{{link-to 'Events' 'choices'}}</li>
+  <li>{{link-to 'My Choices' 'my-choices'}}</li>
   <li>{{link-to 'Profile' 'profile'}}</li>
-  <li>
-     {{link-to 'My Choices' 'my-choices'}}
-  </li>
-  <li>
-    {{link-to 'Create an Event' 'create-event'}}
-  </li>
   </ul>
 </nav>
 
@@ -32,7 +28,11 @@
 
 <div class="site-wrap">
   <header>
-    <img src="/img/logo.png" />
+    <div class="logo">
+      <img src="/img/logo.png" />
+    </div>
+
+
   </header>
 
   {{outlet}}

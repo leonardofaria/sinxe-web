@@ -145,6 +145,10 @@ header {
 }
 
 body.index {
+  > .ember-view {
+    padding-top: 0;
+  }
+
   header, .menu-btn {
     display: none;
   }
@@ -195,4 +199,18 @@ body.index {
   > div {
     margin-bottom: 20px;
   }
+}
+
+.add-event {
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: $button_width;
+  top: $button_width;
+  height: $button_width * 2;
+  width: $button_width * 2;
+  text-decoration: none;
+  z-index: 100;
 }

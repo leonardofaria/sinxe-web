@@ -1,43 +1,41 @@
-{{outlet}}
 {{jquery-date}}
 
-<h2>Create a New Event</h2>
-<ul class="event-publish">
-  <li>
-      {{place-autocomplete-field
-        value=restaurant
-        handlerController=this
-        inputClass='pac-input'
-        focusOutCallback="done"
-        placeChangedCallback="placeChanged"
-        placeholder="Restaurant Name"
-        types='establishment'
-        withGeoLocate=true
-      }}
-  </li>
-  <li>
-    {{input value=address placeholder="Address" class="address-input"}}
-  </li>
-  <li>
-    {{input value=date placeholder="Date" class="date-dropper"}}
-  </li>
-  <li>
-    {{input value=time placeholder="Time" class="time-dropper"}}
-  </li>
-  <li>
-    {{input value=website placeholder="Website" class="website-input"}}
-  </li>
-  <li>
-    {{input value=category placeholder="Category" class="category-input"}}
-  </li>
-  <li>
-    <img class="image-input" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150" alt="" />
-  </li>
-  <li>
-    <button {{action "publishEvent"}}>Publish</button>
-  </li>
-</ul>
+<div class="form">
 
-<div id="map" style="height:400px; width:400px;"></div>
+  <h2>Add new event</h2>
 
-<input id="place-id" style="display:none;">
+  {{place-autocomplete-field
+    value=restaurant
+    handlerController=this
+    inputClass='pac-input'
+    focusOutCallback="done"
+    placeChangedCallback="placeChanged"
+    placeholder="Restaurant Name"
+    types='establishment'
+    withGeoLocate=true
+  }}
+
+  {{input value=address placeholder="Address" class="address-input"}}
+
+  <div class="map-preview preview">
+    <div id="map" style="height:200px;"></div>
+  </div>
+
+  {{input value=date placeholder="Date" class="date-dropper"}}
+
+  {{input value=time placeholder="Time" class="time-dropper"}}
+
+  {{input value=website placeholder="Website" class="hide"}}
+
+  {{input value=category placeholder="Category" class="category-input"}}
+
+  <div class="image-preview preview">
+    <img class="image-input" />
+    <small><i>Image via Google Places</i></small>
+  </div>
+
+  <input id="place-id" style="display:none;">
+
+  <button {{action "publishEvent"}} class="btn">Publish</button>
+
+</div>
