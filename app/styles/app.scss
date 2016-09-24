@@ -3,6 +3,8 @@
 @import "_variables";
 @import "jtinder";
 @import "ui/menu";
+@import "ui/form";
+@import "ui/util";
 
 body {
   background: $white;
@@ -39,9 +41,10 @@ header {
   align-items: center;
   justify-content: center;
 
-  h1 {
-    margin: 0;
-    padding: 0;
+  img {
+    margin: 0 auto;
+    height: 45px;
+    width: auto;
   }
 }
 
