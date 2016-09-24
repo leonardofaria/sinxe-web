@@ -45,7 +45,7 @@ export default Ember.Route.extend({
         newEvent.save().then(function() {
           user[0].get('events').addObject(newEvent);
           user[0].save();
-        });
+        }).then(this.transitionTo('choices'));
       }
     }
   }
