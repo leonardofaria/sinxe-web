@@ -6,5 +6,5 @@ export default DS.Model.extend({
   time: DS.attr('date'),
   imageUrl: DS.attr('string'),
   category: DS.attr('string'),
-  //users: DS.hasMany('user', {async: true})
+  users: DS.hasMany('user', {async: true})
 });
