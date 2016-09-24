@@ -1,20 +1,34 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model() {
-    this.store.findAll('user');
-    return this.store.findAll('event');
-  },
+  model: function() {
+    let user = this.store.query('user', {
+      orderBy: 'uid',
+      equalTo: this.get('session').get('currentUser').uid
+    });
 
+    let events = this.store.query('event', {
+      orderBy:'time',
+      startAt: Date.now()/1000
+    });
+
+
+    return Ember.RSVP.hash({
+      user: user,
+      events: events
+    });
+
+
+  },
   actions: {
     selectChoice(itemID) {
       const currentUser = this.get('session').get('currentUser');
       var userslist = this.store.peekAll('user');
       console.log(userslist);
       const user = userslist.filter(function (el) {
-        return el.get('uid') === currentUser.uid;
+        return true;
       });
-      console.log(user[0]);
+      console.log(user);
       var items = this.store.peekAll('event');
       const itemSelected = items.filter((item) => {
         return item.get('id') === itemID;
@@ -25,5 +39,4 @@ export default Ember.Route.extend({
       user[0].save();
     }
   }
-
 });
