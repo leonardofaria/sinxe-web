@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('events');
+  this.route('events', {path: '/event/:event_id'});
   this.route('profile');
   this.route('choices');
 

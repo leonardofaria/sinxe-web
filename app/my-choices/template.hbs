@@ -1,7 +1,6 @@
-{{outlet}}
 MY CHOICE PAGE
 {{#each chosenEvents as |event|}}
-  <div>{{event.restaurantName}}</div>
+  <div>{{#link-to "events" event.id}}{{event.restaurantName}}{{/link-to}}</div>
   <div>{{event.address}}</div>
   <div>{{event.category}}</div>
 {{/each}}
