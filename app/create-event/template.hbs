@@ -27,7 +27,15 @@
 
   {{input value=website placeholder="Website" class="hide"}}
 
-  {{input value=category placeholder="Category" class="category-input"}}
+  <div class="select">
+    <select class="category-input" value="target.value">
+      <option value="" hidden>Category</option>
+      {{#each categories as |category index|}}
+
+        <option value=category>{{category}}</option>
+      {{/each}}
+    </select>
+  </div>
 
   <div class="image-preview preview">
     <img class="image-input" />
