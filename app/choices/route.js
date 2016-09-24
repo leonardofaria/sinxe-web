@@ -28,13 +28,15 @@ export default Ember.Route.extend({
       const user = userslist.filter(function (el) {
         return true;
       });
-      
+
       var items = this.store.peekAll('event');
       const itemSelected = items.filter((item) => {
         return item.get('id') === itemID;
       })
       user[0].get('events').addObject(itemSelected[0]);
       user[0].save();
+      itemSelected[0].get('users').addObject(user[0]);
+      itemSelected[0].save();
     }
   }
 });
