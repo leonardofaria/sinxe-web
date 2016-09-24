@@ -8,6 +8,12 @@ export default Ember.Route.extend({
     });
   },
 
+  setupController: function(controller, model) {
+    var categories = ["Afghan", "African", "American (New)", "American (Traditional)", "Arabian", "Argentine", "Armenian", "Asian Fusion", "Australian", "Austrian", "Bangladeshi", "Barbeque", "Basque", "Belgian", "Brasseries", "Brazilian", "Breakfast & Brunch", "British", "Buffets", "Burgers", "Burmese", "Cafes", "Cafeteria", "Cajun/Creole", "Calabrian", "Cambodian", "Cantonese", "Caribbean", "Catalan", "Cheesesteaks", "Chicken Shop", "Chicken Wings", "Chinese", "Colombian", "Comfort Food", "Creperies", "Cuban", "Czech", "Delis", "Dim Sum", "Diners", "Dinner Theater", "Dominican", "Egyptian", "Ethiopian", "Falafel", "Fast Food", "Filipino", "Fish & Chips", "Fondue", "Food Court", "Food Stands", "French", "Gastropubs", "German", "Gluten-Free", "Greek", "Hainan", "Haitian", "Halal", "Hawaiian", "Himalayan/Nepalese", "Hong Kong Style Cafe", "Hot Dogs", "Hot Pot", "Hungarian", "Iberian", "Indian", "Indonesian", "Irish", "Italian", "Izakaya", "Japanese", "Korean", "Kosher", "Laotian", "Latin American", "Lebanese", "Live/Raw Food", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Modern European", "Mongolian", "Moroccan", "New Mexican Cuisine", "Nicaraguan", "Noodles", "Pakistani", "Persian/Iranian", "Peruvian", "Pizza", "Polish", "Pop-Up Restaurants", "Portuguese", "Poutineries", "Puerto Rican", "Ramen", "Russian", "Salad", "Salvadoran", "Sandwiches", "Sardinian", "Scandinavian", "Scottish", "Seafood", "Senegalese", "Shanghainese", "Singaporean", "Slovakian", "Soul Food", "Soup", "South African", "Southern", "Spanish", "Sri Lankan", "Steakhouses", "Supper Clubs", "Sushi Bars", "Syrian", "Szechuan", "Taiwanese", "Tapas Bars", "Tapas/Small Plates", "Teppanyaki", "Tex-Mex (te", "Thai", "Themed Cafes", "Trinidadian", "Turkish", "Tuscan", "Ukrainian", "Uzbek", "Vegan", "Vegetarian", "Venezuelan", "Vietnamese", "Waffles"];
+
+    controller.set('categories', categories);
+  },
+
   actions: {
     publishEvent: function() {
       if($(".pac-input") === "") {
@@ -22,6 +28,9 @@ export default Ember.Route.extend({
           return true;
         });
 
+        var newChat = this.store.createRecord('chat');
+        newChat.save();
+
         var newEvent = this.store.createRecord('event', {
           restaurantName: $(".pac-input").val(),
           address: $(".address-input").val(),
@@ -30,7 +39,8 @@ export default Ember.Route.extend({
           imageUrl: $('.image-input').prop('src'),
           placeId: $('#place-id').val(),
           category: $(".category-input").val(),
-          user: user[0]
+          user: user[0],
+          chat: newChat
         });
         newEvent.save().then(function() {
           user[0].get('events').addObject(newEvent);

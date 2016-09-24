@@ -8,5 +8,6 @@ export default DS.Model.extend({
   imageUrl: DS.attr('string'),
   category: DS.attr('string'),
   placeId: DS.attr('string'),
-  users: DS.hasMany('user', {async: true})
+  users: DS.hasMany('user', {async: true}),
+  chat: DS.belongsTo('chat')
 });
