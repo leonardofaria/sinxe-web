@@ -1,6 +1,7 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
+
   var ENV = {
     modulePrefix: 'sinxe',
     environment: environment,
@@ -52,6 +53,11 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  ENV['place-autocomplete'] = {
+    exclude: false,
+    key: 'AIzaSyBykxURuWy43EO7p7AJDTNQqNl-WtJhqic'
+  };
 
   return ENV;
 };

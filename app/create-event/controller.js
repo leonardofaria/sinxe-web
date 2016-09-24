@@ -13,6 +13,14 @@ export default Ember.Controller.extend({
         category: this.get('category')
       });
       newEvent.save();
+    },
+
+    done: function() {
+      console.log("this is coool");
+    },
+
+    placeChanged: function(callback) {
+      console.log(callback);
     }
   }
 });
