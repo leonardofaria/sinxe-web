@@ -24,7 +24,8 @@ export default Ember.Route.extend({
         return item.get('id') === eventId;
       })
       itemSelected[0].get('users').addObject(user[0]);
-      itemSelected[0].save();
+      console.log(itemSelected[0].get('chat').content.id);
+      itemSelected[0].save().then(this.transitionTo('chats', itemSelected[0].get('chat').content.id));
     }
   }
 

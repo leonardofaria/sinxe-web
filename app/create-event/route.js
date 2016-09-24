@@ -39,9 +39,9 @@ export default Ember.Route.extend({
           imageUrl: $('.image-input').prop('src'),
           placeId: $('#place-id').val(),
           category: $(".category-input").val(),
-          user: user[0],
           chat: newChat
         });
+        newEvent.get('users').addObject(user[0]);
         newEvent.save().then(function() {
           user[0].get('events').addObject(newEvent);
           user[0].save();
