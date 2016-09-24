@@ -28,7 +28,7 @@ ul {
 // https://github.com/emberjs/ember.js/issues/11486#issuecomment-245863836
 :root,
 .ember-application,           // Class name Ember add's to it's `rootElement` (body)
-.ember-application > div {    // Extraneous div for application view
+.ember-application > .ember-view {    // Extraneous div for application view
   height: 100%;
 }
 
@@ -55,4 +55,46 @@ header {
   height: auto;
   width: 64px;
 
+}
+
+body.index {
+  header, .menu-btn {
+    display: none;
+  }
+
+  .site-wrap {
+    background: url('/img/restaurant.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      margin-top: 25px;
+      padding: 0;
+
+      img {
+        height: 85px;
+        margin: 0 auto;
+        width: auto;
+      }
+    }
+
+    .cta {
+      border: 1px solid $brand-color;
+      color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 35px;
+      border-radius: 30px;
+      padding: 10px 15px;
+      text-transform: uppercase;
+
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
 }
