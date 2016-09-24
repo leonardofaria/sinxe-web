@@ -14,7 +14,7 @@ export default Ember.Route.extend({
         alert("Please select restaurant");
       } else if($(".date-dropper").val() == "" || $(".time-dropper").val() == "") {
         alert("Please select date");
-      } else if(Date.parse($(".date-dropper").val() + " " + $(".time-dropper").val() + " " + "GMT")/1000 < Date.now()/1000) {
+      } else if(Date.parse($(".date-dropper").val() + " " + $(".time-dropper").val() + " " + "PST") < Date.now()) {
         alert("Please select a date that is in the future");
       } else {
         var userslist = this.store.peekAll('user');
