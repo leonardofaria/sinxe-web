@@ -3,26 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   //sortProperties: ['timestamp'],
   //sortAscending: false, // sorts post by timestamp
-  actions: {
-    publishEvent: function() {
-      if($(".pac-input") == "") {
-        alert("Please select restaurant");
-      } else if($(".date-dropper").val() == "" || $(".time-dropper").val() == "") {
-        alert("Please select date");
-      } else  {
-        var newEvent = this.store.createRecord('event', {
-          restaurantName: $(".pac-input").val(),
-          address: $(".address-input").val(),
-          time: Date.parse($(".date-dropper").val() + " " + $(".time-dropper").val() + " " + "GMT")/1000,
-          website: $(".website-input").val(),
-          imageUrl: $('.image-input').prop('src'),
-          placeId: $('#place-id').val(),
-          category: $(".category-input").val()
-        });
-        newEvent.save();
-      }
-    },
-
+actions:{
     done: function() {
 
     },
@@ -60,8 +41,6 @@ export default Ember.Controller.extend({
        }));
        marker.setPosition(place.geometry.location);
        marker.setVisible(true);
-
-      console.log(place);
       place.makeThis['break'];
     }
   }

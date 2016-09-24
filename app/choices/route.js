@@ -24,17 +24,15 @@ export default Ember.Route.extend({
     selectChoice(itemID) {
       const currentUser = this.get('session').get('currentUser');
       var userslist = this.store.peekAll('user');
-      console.log(userslist);
+
       const user = userslist.filter(function (el) {
         return true;
       });
-      console.log(user);
+      
       var items = this.store.peekAll('event');
       const itemSelected = items.filter((item) => {
         return item.get('id') === itemID;
       })
-      console.log(itemSelected[0]);
-
       user[0].get('events').addObject(itemSelected[0]);
       user[0].save();
     }
