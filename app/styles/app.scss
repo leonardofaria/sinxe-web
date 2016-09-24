@@ -1,12 +1,26 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css");
 @import "_variables";
-@import "jtinder";
+@import "ui/loading";
 @import "ui/menu";
 @import "timedropper";
 @import "datedropper";
 @import "ui/form";
 @import "ui/util";
+
+* {
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+*:not(input,textarea) {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 
 body {
   background: $white;
@@ -32,16 +46,25 @@ ul {
   height: 100%;
 }
 
+.ember-application > .ember-view {
+  padding-top: 60px;
+}
+
 header {
   background: $brand-color;
   color: $white;
   display: flex;
   height: 60px;
+  left: 0;
   margin: 0;
   padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
   text-align: center;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 
   img {
     margin: 0 auto;
@@ -54,7 +77,71 @@ header {
   border-radius: 50%;
   height: auto;
   width: 64px;
+}
 
+.card {
+  background: #eee;
+  border: 1px solid rgba(96, 96, 96, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 380px;
+  overflow: hidden;
+  padding: 10px;
+  width: 100%;
+
+  .img {
+    flex-grow: 1;
+    width: 100%;
+    margin-bottom: 5px;
+    position: relative;
+    transform: translate3d(0%,0,0) scale3d(1,1,1);
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+    -webkit-transform-style: preserve-3d;
+    background-size: cover;
+  }
+
+  .event {
+    align-items: center;
+    display: flex;
+    height: 50px;
+
+    .avatar {
+      width: 32px;
+    }
+
+    h2 {
+      color: $dark-text;
+      flex-grow: 1;
+      font-weight: normal;
+    }
+  }
+
+  .event-details {
+    align-items: center;
+    color: $text;
+    display: flex;
+
+    .description {
+      flex-grow: 1;
+    }
+
+    .quantity {
+      display: flex;
+      font-size: 1rem;
+      align-items: center;
+
+      .fa {
+        font-size: 0.8rem;
+        margin-right: 5px;
+      }
+    }
+  }
 }
 
 body.index {
@@ -96,5 +183,16 @@ body.index {
         margin-right: 10px;
       }
     }
+  }
+}
+
+@import "jtinder";
+
+.choices-list {
+  margin: 20px;
+  max-width: 420px;
+
+  > div {
+    margin-bottom: 20px;
   }
 }

@@ -4,7 +4,8 @@ export default Ember.Component.extend({
   didInsertElement: function() {
     let self = this;
     let items = this.get('items');
-    console.log(items);
+
+    Ember.$('.wrap').css('height', Ember.$(window).height() - 210 + "px");
 
     items.forEach((item) => {
       console.log(item);
