@@ -26,7 +26,7 @@ export default Ember.Route.extend({
       var userslist = this.store.peekAll('user');
 
       const user = userslist.filter(function (el) {
-        return true;
+        return el.get('uid') === currentUser.uid;
       });
 
       var items = this.store.peekAll('event');
@@ -35,8 +35,8 @@ export default Ember.Route.extend({
       })
       user[0].get('events').addObject(itemSelected[0]);
       user[0].save();
-      itemSelected[0].get('users').addObject(user[0]);
-      itemSelected[0].save();
+      // itemSelected[0].get('users').addObject(user[0]);
+      // itemSelected[0].save();
     }
   }
 });
