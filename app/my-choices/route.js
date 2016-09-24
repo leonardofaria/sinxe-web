@@ -12,6 +12,6 @@ export default Ember.Route.extend({
       return el.get('uid') === currentUser.uid;
     });
 
-    controller.set('model', user[0].get('events'));
+    controller.set('chosenEvents', user[0].get('events'));
   }
 });
