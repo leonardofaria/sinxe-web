@@ -13,6 +13,7 @@ Router.map(function() {
 
   this.route('my-choices');
   this.route('create-event');
+  this.route('chat', {path : "/chat/:chat_id"});
 });
 
 export default Router;
