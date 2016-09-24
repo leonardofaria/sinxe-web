@@ -1,0 +1,10 @@
+<select value={{title}} id="title">
+  <option value="" hidden>Position</option>
+  {{#each positionList as |position index|}}
+    <option value={{index}} selected={{if (is-equal title position.name) 'selected' ''}}>{{position.name}}</option>
+  {{/each}}
+</select>
+
+{{textarea value=bio placeholder="Bio"}}
+
+<button {{action "updateUser"}}>Save</button>
