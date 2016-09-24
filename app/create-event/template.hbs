@@ -1,36 +1,43 @@
 {{outlet}}
 {{jquery-date}}
+
 <h2>Create a New Event</h2>
 <ul class="event-publish">
   <li>
-    {{input value=restaurantName placeholder="restro name"}}
+      {{place-autocomplete-field
+        value=restaurant
+        handlerController=this
+        inputClass='pac-input'
+        focusOutCallback="done"
+        placeChangedCallback="placeChanged"
+        placeholder="Restaurant Name"
+        types='establishment'
+        withGeoLocate=true
+      }}
   </li>
   <li>
-    {{input value=address placeholder="address"}}
+    {{input value=address placeholder="Address" class="address-input"}}
   </li>
   <li>
-    {{input value=date placeholder="date" id="date"}}
+    {{input value=date placeholder="Date" class="date-dropper"}}
   </li>
   <li>
-    {{input value=time placeholder="time" id="time"}}
+    {{input value=time placeholder="Time" class="time-dropper"}}
   </li>
   <li>
-    {{input value=category placeholder="category"}}
+    {{input value=website placeholder="Website" class="website-input"}}
+  </li>
+  <li>
+    {{input value=category placeholder="Category" class="category-input"}}
+  </li>
+  <li>
+    <img class="image-input" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150" alt="" />
   </li>
   <li>
     <button {{action "publishEvent"}}>Publish</button>
   </li>
 </ul>
 
-<div class="test-place-autocomplete-container" data-google-auto="{{googleAuto}}">
-  {{place-autocomplete-field
-    value=model.address
-    handlerController=this
-    inputClass='place-autocomplete--input'
-    focusOutCallback="done"
-    placeChangedCallback="placeChanged"
-    placeholder="Restaurant Name"
-    types='establishment'
-    withGeoLocate=true
-  }}
-</div>
+<div id="map" style="height:400px; width:400px;"></div>
+
+<input id="place-id" style="display:none;">
