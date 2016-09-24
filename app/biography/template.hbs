@@ -1,0 +1,17 @@
+{{outlet}}
+<div class="form">
+  <img src="{{avatar}}" class="avatar center">
+
+  <div class="select">
+    <select onchange={{action (mut model.occupation) value="target.value"}}>
+      <option value="" hidden>Position</option>
+      {{#each positionList as |position index|}}
+
+        <option value={{math index "+" 1}} selected={{if (is-equal model.occupation (math index "+" 1)) 'selected' ''}}>{{position.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  {{textarea value=model.bio placeholder="Bio"}}
+
+</div>

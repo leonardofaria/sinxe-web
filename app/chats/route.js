@@ -5,7 +5,6 @@ export default Ember.Route.extend({
   model: function(params) {
     Window.chat_id = params.chat_id;
     let chat = this.store.query('chat', {
-
       equalTo: params.chat_id
     });
 
@@ -37,7 +36,7 @@ export default Ember.Route.extend({
       var chatslist = this.store.peekAll('chat');
 
       const chat = chatslist.filter(function (el) {
-        return true;
+        return el.id === Window.chat_id;
       });
 
       var newMessage = this.store.createRecord('message', {
