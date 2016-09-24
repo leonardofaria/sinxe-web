@@ -10,9 +10,9 @@ export default Ember.Route.extend({
 
   actions: {
     publishEvent: function() {
-      if($(".pac-input") == "") {
+      if($(".pac-input") === "") {
         alert("Please select restaurant");
-      } else if($(".date-dropper").val() == "" || $(".time-dropper").val() == "") {
+      } else if($(".date-dropper").val() === "" || $(".time-dropper").val() === "") {
         alert("Please select date");
       } else if(Date.parse($(".date-dropper").val() + " " + $(".time-dropper").val() + " " + "PST") < Date.now()) {
         alert("Please select a date that is in the future");
