@@ -2,13 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   beforeModel: function() {
-    console.log(this.get('session').isAuthenticated);
-    console.log(this.get('session').fetch().then((data) => {console.log(data)}));
-    if (this.get('session').get('isAuthenticated')) {
-      this.transitionTo('choices');
-    } else {
-      return this.get('session').fetch().catch(function() {});
-    }
+    return this.get('session').fetch().catch(function() {});
   },
 
   actions: {
