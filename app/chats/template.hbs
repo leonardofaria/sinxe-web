@@ -15,7 +15,7 @@
         <time>
           {{#unless (is-equal message.name currentUser.displayName)}}
             {{message.name}} -
-          {{/unless}}<span>{{message.timestamp}}</span>
+          {{/unless}}<span data-timestamp={{message.timestamp}}></span>
         </time>
       </div>
     </li>
