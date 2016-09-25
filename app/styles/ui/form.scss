@@ -36,7 +36,15 @@ textarea:focus {
     margin: 20px auto 30px;
   }
 
-  input[type=text], textarea {
+  label {
+    color: $text;
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  input[type=text], input[type=tel], input[type=number], textarea {
     border: 1px solid $dark;
     border-radius: 5px;
     display: block;

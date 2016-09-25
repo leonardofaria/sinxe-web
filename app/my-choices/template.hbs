@@ -1,22 +1,20 @@
-
 <div class="choices-list">
 {{#each chosenEvents as |event|}}
   <div class="card">
-    <div class="img" style="background-image: url({{event.imageUrl}})"></div>
+    <div class="img" style="background-image: url({{event.imageUrl}})">
+      {{link-to " " "events" event.id}}
+    </div>
 
     <div class="event">
       <h2>{{link-to event.restaurantName "events" event.id}}</h2>
-      <div class="members">
-        {{members}}
+      <div class="quantity">
+        <span class="fa fa-users"></span> <span>1 / {{event.participants}}</span>
       </div>
     </div>
 
     <div class="event-details">
       <div class="description">
         {{event.address}}
-      </div>
-      <div class="quantity">
-        <span class="fa fa-users"></span> <span>5</span>
       </div>
     </div>
   </div>

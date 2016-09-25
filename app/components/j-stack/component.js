@@ -27,17 +27,14 @@ export default Ember.Component.extend({
 
           <div class="event">
             <h2>${item.data.restaurantName}</h2>
-            <div class="members">
-              ${members}
+            <div class="quantity">
+              <span class="fa fa-users"></span> <span>1 / ${(item.data.participants + 1)}</span>
             </div>
           </div>
 
           <div class="event-details">
             <div class="description">
               ${item.data.address}
-            </div>
-            <div class="quantity">
-              <span class="fa fa-users"></span> <span>${item.data.quantity}</span>
             </div>
           </div>
 
