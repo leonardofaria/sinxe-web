@@ -31,16 +31,16 @@ export default Ember.Route.extend({
     sendMessage() {
       let message = $('#text-input');
       let name = this.get('session').get('currentUser').displayName;
-
-      const currentUser = this.get('session').get('currentUser');
+      let photoUrl = this.get('session').get('currentUser').photoURL;
       var chatslist = this.store.peekAll('chat');
 
-      const chat = chatslist.filter(function (el) {
+      var chat = chatslist.filter(function (el) {
         return el.id === Window.chat_id;
       });
 
       var newMessage = this.store.createRecord('message', {
         name: name,
+        photoURL: photoUrl,
         message: message.val(),
         timestamp: Date.now(),
         chat: chat[0]
