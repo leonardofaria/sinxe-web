@@ -19,6 +19,11 @@ textarea:focus {
   margin: 0 auto 20px;
   padding: 10px 20px;
   text-transform: uppercase;
+  text-decoration: none;
+
+  .fa {
+    margin-right: 5px;
+  }
 }
 
 .form {
@@ -42,6 +47,11 @@ textarea:focus {
     font-size: 0.8rem;
     margin-bottom: 5px;
     text-transform: uppercase;
+  }
+
+  p {
+    font-size: 0.8rem;
+    margin: 0 auto 20px;
   }
 
   input[type=text], input[type=tel], input[type=number], textarea {
