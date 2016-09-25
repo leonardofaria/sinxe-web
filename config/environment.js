@@ -56,7 +56,7 @@ module.exports = function(environment) {
 
   ENV['place-autocomplete'] = {
     exclude: false,
-    key: 'AIzaSyBykxURuWy43EO7p7AJDTNQqNl-WtJhqic'
+    key: 'AIzaSyCDWBDLshPKt8wVUEBF-ocaAj5LwPEVnRc'
   };
 
   return ENV;

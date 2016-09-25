@@ -76,8 +76,8 @@ export default Ember.Component.extend({
 
   actions: {
     selectChoice(self, itemID) {
-      //console.log(itemID);
-      //console.log(self);
+      console.log(itemID);
+
       self.sendAction('selectChoice', itemID);
     }
   }
