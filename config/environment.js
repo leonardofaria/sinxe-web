@@ -15,7 +15,7 @@ module.exports = function(environment) {
     },
 
     firebase: {
-      apiKey: 'AIzaSyBykxURuWy43EO7p7AJDTNQqNl-WtJhqic',
+      apiKey: process.env.FIREBASE_KEY,
       authDomain: 'sinxe-d61e7.firebaseapp.com',
       databaseURL: 'https://sinxe-d61e7.firebaseio.com',
       storageBucket: 'sinxe-d61e7.appspot.com',
@@ -56,7 +56,7 @@ module.exports = function(environment) {
 
   ENV['place-autocomplete'] = {
     exclude: false,
-    key: 'AIzaSyCDWBDLshPKt8wVUEBF-ocaAj5LwPEVnRc'
+    key: process.env.GOOGLEMAPS_KEY
   };
 
   ENV.serviceWorker = {
