@@ -62,11 +62,14 @@ module.exports = function(environment) {
   ENV.serviceWorker = {
     enabled: true,
     debug: true,
-    serviceWorkerFile: "serviceworker.js",
-    includeRegistration: false,
     fallback: [
-     '/offline'
-   ]
+       '/offline'
+     ],
+     precacheURLs: [
+       '/img',
+       '/index.html',
+       '/assets'
+     ]
   };
 
   return ENV;
