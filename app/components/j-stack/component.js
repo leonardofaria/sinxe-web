@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Component.extend({
   didInsertElement: function() {
@@ -37,6 +38,7 @@ export default Ember.Component.extend({
 
           <div class="event-details">
             <div class="description">
+              <span>Happening at ${moment(item.data.time * 1000).format("H:m")}</span><br/>
               ${item.data.address}
             </div>
           </div>
@@ -51,15 +53,11 @@ export default Ember.Component.extend({
     Ember.$(".tinderslide").jTinder({
       // dislike callback
       onDislike: function (item) {
-        // set the status text
-        Ember.$('#status').html('Dislike image ' + (item.index()+1));
       },
       // like callback
       onLike: function (item) {
         //console.log($(item).data('id'));
         self.actions.selectChoice(self, $(item).data('id'));
-        // set the status text
-        Ember.$('#status').html('Like image ' + (item.index()+1));
       },
       animationRevertSpeed: 200,
       animationSpeed: 400,

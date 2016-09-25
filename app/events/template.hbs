@@ -6,7 +6,10 @@
           {{model.restaurantName}} <span class="fa fa-chevron-circle-right"></span>
         </a>
       </h2>
-      <h3><span>{{model.category}}</span> - <span>Aug 12 8:00</span></h3>
+      <h3>
+        <span>{{model.category}}</span> -
+        <span>{{moment-format model.timestamp 'MMM DD HH:mm'}}</span>
+      </h3>
     </div>
   </div>
 

@@ -149,12 +149,14 @@ header {
   }
 
   .event-details {
-    align-items: center;
     color: $text;
-    display: flex;
 
     .description {
-      flex-grow: 1;
+      font-size: 0.8rem;
+
+      span {
+        color: $dark;
+      }
     }
   }
 }
