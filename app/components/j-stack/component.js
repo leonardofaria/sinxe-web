@@ -12,17 +12,21 @@ export default Ember.Component.extend({
     });
 
     items.forEach((item) => {
-      console.log(item);
+      // console.log(item);
       let membersInfo = item.get('users').get('content').currentState;
-      let members = '';
+
+      let going = 1;
+      let info;
 
       if (Array.isArray(membersInfo)) {
-        membersInfo.forEach((member) => {
-          console.log(member._data);
-          members += `<img src="${member._data.photoUrl}" class="avatar" />`;
-        });
+        going = membersInfo.length;
+        // console.log('membersInfo: ' + membersInfo.length);
+      }
+
+      if (parseInt(item.data.participants) > 0) {
+        info = `${going} / ${item.data.participants}`;
       } else {
-        members += `<img src="${member._data.photoUrl}" class="avatar" />`;
+        info = going;
       }
 
       let output = `
@@ -32,7 +36,7 @@ export default Ember.Component.extend({
           <div class="event">
             <h2>${item.data.restaurantName}</h2>
             <div class="quantity">
-              <span class="fa fa-users"></span> <span>1 / ${(item.data.participants + 1)}</span>
+              <span class="fa fa-users"></span> <span>${info}</span>
             </div>
           </div>
 
@@ -74,7 +78,7 @@ export default Ember.Component.extend({
 
   actions: {
     selectChoice(self, itemID) {
-      console.log(itemID);
+      // console.log(itemID);
 
       self.sendAction('selectChoice', itemID);
     }
