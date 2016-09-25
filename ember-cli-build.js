@@ -5,8 +5,14 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
+    dotEnv: {
+      clientAllowedKeys: ['FIREBASE_KEY', 'GOOGLEMAPS_KEY']
+    },
     fingerprint: {
       enabled: true
+    },
+    'ember-font-awesome': {
+      useScss: true
     }
   });
 
