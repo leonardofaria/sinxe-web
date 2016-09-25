@@ -1,10 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  beforeModel() {
+    return this.store.findAll('user');
+  },
+
   model: function(params) {
-    return this.store.query('user', {
-      equalTo: params.user_id
-    });
+    return this.store.peekRecord('user', params.user_id);
   },
 
   setupController: function(controller, model) {
@@ -16,12 +18,6 @@ export default Ember.Route.extend({
     }
     controller.set('positionList', positionList);
 
-    const currentUser = this.get('session').get('currentUser');
-    const user = model.filter(function (el) {
-      return el.get('uid') === currentUser.uid;
-    });
-
-    controller.set('model', user[0]);
-    controller.set('avatar', currentUser.photoURL);
+    controller.set('model', model);
   }
 });
