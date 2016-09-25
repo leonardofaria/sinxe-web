@@ -1,14 +1,33 @@
-{{outlet}}
 <div class="messages-container">
-  <ul id='messages'>
+  <ul id='messages' class="chat">
     {{#each chatMessage as |message|}}
-    <li>
-      <h4>{{message.name}}</h4>
-      <span>{{message.message}}</span>
+    <li class={{if (is-equal message.name currentUser.displayName) 'self' 'other'}}>
+      <div class="avatar">
+        {{#if (is-equal message.name currentUser.displayName)}}
+        <img src="{{currentUser.photoURL}}"/>
+        {{else}}
+        <img src="{{message.photoURL}}" draggable="false"/>
+        {{/if}}
+      </div>
+
+      <div class="msg">
+        <p>{{message.message}}</p>
+        <time>
+          {{#unless (is-equal message.name currentUser.displayName)}}
+            {{message.name}} -
+          {{/unless}}<span>{{message.timestamp}}</span>
+        </time>
+      </div>
     </li>
     {{/each}}
   </ul>
 </div>
 
-<input id='text-input'>
-<button id='send' {{action 'sendMessage'}}>Send</button>
+<div class="messages-input">
+  <input id='text-input' placeholder="Type your message">
+  <button type="submit" id='send' {{action 'sendMessage'}}>
+    <span class="fa fa-angle-right"></span>
+  </button>
+</div>
+
+{{ui-chat}}

@@ -5,7 +5,7 @@
     <div class="img" style="background-image: url({{event.imageUrl}})"></div>
 
     <div class="event">
-      <h2>{{#link-to "events" event.id}}{{event.restaurantName}}{{/link-to}}</h2>
+      <h2>{{link-to event.restaurantName "events" event.id}}</h2>
       <div class="members">
         {{members}}
       </div>

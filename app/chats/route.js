@@ -25,6 +25,8 @@ export default Ember.Route.extend({
 
     controller.set('chatMessage', chatMessage);
 
+    let currentUser = this.get('session').get('currentUser');
+    controller.set('currentUser', currentUser);
   },
 
   actions: {
@@ -42,7 +44,7 @@ export default Ember.Route.extend({
         name: name,
         photoURL: photoUrl,
         message: message.val(),
-        timestamp: Date.now(),
+        timestamp: Math.floor(Date.now() / 1000),
         chat: chat[0]
       });
 
