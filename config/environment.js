@@ -68,7 +68,8 @@ module.exports = function(environment) {
      precacheURLs: [
        '/img',
        '/index.html',
-       '/assets'
+       '/assets',
+       '/fonts'
      ]
   };
 
