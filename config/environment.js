@@ -59,5 +59,15 @@ module.exports = function(environment) {
     key: 'AIzaSyCDWBDLshPKt8wVUEBF-ocaAj5LwPEVnRc'
   };
 
+  ENV.serviceWorker = {
+    enabled: true,
+    debug: true,
+    serviceWorkerFile: "serviceworker.js",
+    includeRegistration: false,
+    fallback: [
+     '/offline'
+   ]
+  };
+
   return ENV;
 };

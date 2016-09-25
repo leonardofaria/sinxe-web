@@ -20,5 +20,10 @@
   ],
   "start_url": "/index.html",
   "display": "standalone",
-  "orientation": "landscape"
+  "orientation": "landscape",
+  "gcm_sender_id": "558858480745",
+  "gcm_user_visible_only": true,
+  "permissions": [
+    "gcm"
+  ]
 }

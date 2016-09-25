@@ -10,6 +10,7 @@
     {{content-for "head"}}
 
     <link rel="manifest" href="manifest.json">
+
     <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link rel="stylesheet" href="{{rootURL}}assets/sinxe.css">
 
@@ -21,6 +22,17 @@
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/sinxe.js"></script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("serviceworker.js").then(function (reg) {
+          console.log("Service worker registered");
+        }).catch(function (error) {
+          // registration failed
+          console.log("Registration failed with " + error);
+        });
+      }
+    </script>
 
     {{content-for "body-footer"}}
   </body>
