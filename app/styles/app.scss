@@ -75,7 +75,10 @@ header {
 
 .avatar {
   border-radius: 50%;
-  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 64px;
   width: 64px;
 }
 
@@ -119,6 +122,11 @@ header {
       color: $dark-text;
       flex-grow: 1;
       font-weight: normal;
+
+      a {
+        color: $dark-text;
+        text-decoration: none;
+      }
     }
   }
 
@@ -214,3 +222,144 @@ body.index {
   text-decoration: none;
   z-index: 100;
 }
+
+body.events {
+  .site-wrap {
+    display: flex;
+    flex-direction: column;
+
+    .place {
+      background-position: center, center;
+      background-size: cover;
+      align-items: flex-end;
+      display: flex;
+      height: 100%;
+      flex-grow: 1;
+      // min-height: 200px;
+
+      .description {
+        flex-grow: 1;
+        padding: 10px;
+        text-align: left;
+
+        h2 {
+          color: $white;
+          font-weight: normal;
+          margin: 0 0 5px 0;
+          padding: 0;
+        }
+
+        h3 {
+          color: $text;
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.8rem;
+          font-weight: normal;
+          margin: 0 0 5px 0;
+          padding: 0;
+          text-transform: uppercase;
+        }
+
+        h4 {
+          color: $white;
+          font-weight: normal;
+          font-size: 0.8rem;
+          margin: 0;
+          padding: 0;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .google-maps {
+      height: 200px;
+      position: relative;
+      text-transform: height 0.25s;
+
+      &.big {
+        height: 400px;
+      }
+
+      .address {
+        color: $text;
+        height: 200px;
+        font-size: 0.8rem;
+        padding: 10px;
+        width: 50%;
+
+        span {
+          color: $dark-text;
+          text-transform: uppercase;
+        }
+
+        .users {
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 5px;
+
+          div {
+            flex-basis: 33.33%;
+          }
+        }
+      }
+
+      .mask {
+        width: 50%;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: all 0.25s;
+        z-index: 10;
+
+        &.small {
+          content: "close";
+          width: 70px;
+          height: 40px;
+        }
+
+        &:before {
+          background: $dark;
+          color: $text;
+          content: "close";
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 70px;
+          font-size: 0.7rem;
+          text-transform: uppercase;
+          height: 40px;
+          position: absolute;
+          opacity: 0;
+          text-align: right;
+          top: 0;
+          right: 0;
+          transition: opacity 0.25s;
+        }
+
+        &.small:before {
+          opacity: 1;
+        }
+      }
+
+      #map {
+        width: 50%;
+        height: 200px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transition: all 0.25s;
+
+        &.big {
+          width: 100%;
+          height: 400px;
+        }
+      }
+    }
+
+    .btn {
+      margin: 20px auto;
+    }
+  }
+}
+

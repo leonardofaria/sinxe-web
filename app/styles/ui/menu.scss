@@ -162,17 +162,22 @@ label.menu-btn {
     padding-top: 60px;
 
     li {
-      border-bottom: 1px solid $dark;
       transition: background 0.25s;
 
       a {
         color: $text;
         cursor: pointer;
         display: block;
-        font-size: 0.85rem;
-        padding: 10px 15px;
+        font-size: 0.80rem;
+        padding: 12px 20px;
         text-decoration: none;
+        text-transform: uppercase;
         transition: color 0.25s;
+
+        &.active {
+          background: $dark;
+          color: $white;
+        }
       }
 
       &:hover {

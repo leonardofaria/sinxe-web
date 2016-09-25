@@ -1,0 +1,13 @@
+<div class="address">
+  {{address}} <br/><br/>
+
+  <span>Who is coming</span><br/>
+  <div class="users">
+    {{#each users as |user index|}}
+      <div style="background-image: url({{user.photoUrl}})" class="avatar"></div>
+    {{/each}}
+  </div>
+</div>
+
+<div class="mask"></div>
+<div id="map"></div>
