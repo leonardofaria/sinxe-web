@@ -5,7 +5,10 @@ export default Ember.Component.extend({
     let self = this;
     let items = this.get('items');
 
-    Ember.$('.wrap').css('height', Ember.$(window).height() - 210 + "px");
+    Ember.$('.wrap').css({
+      'height': Ember.$(window).height() - 210 + "px",
+      'max-height': '420px'
+    });
 
     items.forEach((item) => {
       console.log(item);
