@@ -30,6 +30,7 @@
               userVisibleOnly: true
           }).then(function(sub) {
               console.log('endpoint:', sub.endpoint);
+              Window.endpoint = sub.endpoint;
           });
           console.log("Service worker registered");
         }).catch(function (error) {
