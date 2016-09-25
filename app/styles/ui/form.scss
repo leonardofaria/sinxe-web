@@ -19,6 +19,11 @@ textarea:focus {
   margin: 0 auto 20px;
   padding: 10px 20px;
   text-transform: uppercase;
+  text-decoration: none;
+
+  .fa {
+    margin-right: 5px;
+  }
 }
 
 .form {
@@ -44,8 +49,13 @@ textarea:focus {
     text-transform: uppercase;
   }
 
+  p {
+    font-size: 0.8rem;
+    margin: 0 auto 20px;
+  }
+
   input[type=text], input[type=tel], input[type=number], textarea {
-    border: 1px solid $dark;
+    border: 1px solid $text;
     border-radius: 5px;
     display: block;
     font-size: 0.75rem;
@@ -56,14 +66,14 @@ textarea:focus {
     transition: border 0.25s;
 
     &:focus {
-      border: 1px solid $text;
+      border: 1px solid $dark;
       outline: none;
     }
   }
 
   .select {
     background: #fff;
-    border: 1px solid $dark;
+    border: 1px solid $text;
     border-radius: 5px;
     margin: 0 auto 20px;
     max-width: 320px;
@@ -93,7 +103,7 @@ textarea:focus {
     }
 
     &:after {
-      color: #616161;
+      color: $text;
       content: "\f078";
       display: block;
       font-family: "FontAwesome";

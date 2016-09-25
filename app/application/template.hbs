@@ -5,13 +5,13 @@
 
 <nav class="navigation menu">
   <ul>
-  {{#if session.isAuthenticated}}
-    <li><a href="#" {{action "signOut"}}>Sign out ({{session.currentUser.displayName}})</a></li>
-  {{/if}}
-  <li>{{link-to 'Add new event' 'create-event'}}</li>
   <li>{{link-to 'Events' 'choices'}}</li>
+  <li>{{link-to 'Add event' 'create-event'}}</li>
   <li>{{link-to 'My Choices' 'my-choices'}}</li>
-  <li>{{link-to 'Profile' 'profile'}}</li>
+  <li>{{link-to 'My Profile' 'profile'}}</li>
+  {{#if session.isAuthenticated}}
+    <li><a href="#" {{action "signOut"}}>Sign out</a></li>
+  {{/if}}
   </ul>
 </nav>
 

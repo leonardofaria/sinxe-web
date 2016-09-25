@@ -1,19 +1,18 @@
-{{outlet}}
-
-
-<div class="form">
-  <h3>{{model.name}}</h3>
-  <img src="{{model.photoUrl}}" class="avatar center">
-
-  <div class="select">
-    <select onchange={{action (mut model.occupation) value="target.value"}}>
-      <option value="" hidden>Position</option>
-      {{#each positionList as |position index|}}
-
-        <option value={{model.occupation}} disabled="disabled" selected={{if (is-equal model.occupation (math index "+" 1)) 'selected' ''}}>{{position.name}}</option>
-      {{/each}}
-    </select>
+<div class="user-profile">
+  <div class="profile" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(36, 41, 63, 0.8) 100%), url({{model.photoUrl}})">
+    <img src="{{model.photoUrl}}" class="avatar">
+    <h2>{{model.name}}</h2>
   </div>
 
-  {{textarea value=model.bio disabled="disabled" placeholder="Bio"}}
+  <div class="form">
+    <label>Occupation area</label>
+    <p>{{model.occupation}}</p>
+
+    <label>About me</label>
+    <p>{{model.bio}}</p>
+
+    <a href="https://facebook.com/{{model.facebookId}}" class="btn">
+      <span class="fa fa-facebook"></span> View profile
+    </a>
+  </div>
 </div>

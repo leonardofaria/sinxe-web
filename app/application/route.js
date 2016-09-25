@@ -20,6 +20,9 @@ export default Ember.Route.extend({
         // console.log("Email: "+data.currentUser.email);
         // console.log("Photo URL: "+data.currentUser.photoURL);
 
+        let facebookId = data.currentUser.providerData[0].uid;
+        let photoURL = `http://graph.facebook.com/${facebookId}/picture?type=square&width=500&height=500`
+
         const user = users.filter(function (el) {
           return el.get('uid') === data.currentUser.uid;
         });
@@ -29,9 +32,10 @@ export default Ember.Route.extend({
           const newUser = self.store.createRecord('user', {
             name: data.currentUser.displayName,
             email: data.currentUser.email,
-            photoUrl: data.currentUser.photoURL,
+            photoUrl: photoURL,
             uid: data.currentUser.uid,
-            id: data.currentUser.id
+            id: data.currentUser.id,
+            facebookId: facebookId
           });
           newUser.save();
 

@@ -149,12 +149,14 @@ header {
   }
 
   .event-details {
-    align-items: center;
     color: $text;
-    display: flex;
 
     .description {
-      flex-grow: 1;
+      font-size: 0.8rem;
+
+      span {
+        color: $dark;
+      }
     }
   }
 }
@@ -209,7 +211,8 @@ body.index {
 @import "jtinder";
 
 .choices-list {
-  margin: 20px;
+  margin: 0 auto;
+  padding: 20px;
   max-width: 420px;
 
   > div {
@@ -236,14 +239,23 @@ body.events {
     display: flex;
     flex-direction: column;
 
+    .container {
+      display: flex;
+      flex-direction: column;
+      max-width: 420px;
+      margin: 0 auto;
+      height: 100%;
+      flex-grow: 1;
+      transition: all 0.25s;
+    }
+
     .place {
       background-position: center, center;
       background-size: cover;
       align-items: flex-end;
       display: flex;
-      height: 100%;
       flex-grow: 1;
-      // min-height: 200px;
+      transition: all 0.25s;
 
       .description {
         flex-grow: 1;
@@ -371,8 +383,12 @@ body.events {
       }
     }
 
-    .btn {
-      margin: 20px auto;
+    .join {
+      text-align: center;
+
+      .btn {
+        margin: 20px auto;
+      }
     }
   }
 }
@@ -553,6 +569,38 @@ body.chats {
       background: transparent;
       border: 0;
       margin-right: 5px;
+    }
+  }
+}
+
+body.biography {
+  .user-profile {
+    display: flex;
+    flex-direction: column;
+    max-width: 420px;
+    margin: 0 auto;
+
+    .profile {
+      background-position: center, center;
+      background-repeat: no-repeat, no-repeat;
+      background-size: 100%, 350%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+
+      img {
+        margin: 20px auto;
+      }
+
+      h2 {
+        color: $white;
+        font-weight: normal;
+        margin: 0 20px 20px 20px;
+        padding: 0;
+      }
     }
   }
 }
