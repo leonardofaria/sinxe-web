@@ -26,6 +26,11 @@
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("serviceworker.js").then(function (reg) {
+          reg.pushManager.subscribe({
+              userVisibleOnly: true
+          }).then(function(sub) {
+              console.log('endpoint:', sub.endpoint);
+          });
           console.log("Service worker registered");
         }).catch(function (error) {
           // registration failed
