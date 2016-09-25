@@ -43,6 +43,7 @@ export default Ember.Controller.extend({
         Ember.$(".preview").addClass('visible');
       }, 1000);
       Ember.$(".pac-input").val(place["name"]);
+      Ember.$(".address-input, .address-label").removeClass('hide');
       Ember.$(".address-input").val(place['formatted_address']);
       Ember.$(".website-input").val(place['url']);
       Ember.$("#place-id").val(place.place_id);
@@ -50,7 +51,7 @@ export default Ember.Controller.extend({
 
       var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -33.8688, lng: 151.2195},
-        zoom: 13
+        zoom: 17
       });
       var marker = new google.maps.Marker({
         map: map,
@@ -61,7 +62,7 @@ export default Ember.Controller.extend({
       } else {
         map.setCenter(place.geometry.location);
       }
-      map.setZoom(17);  // Why 17? Because it looks good.
+
       marker.setIcon(/** @type {google.maps.Icon} */({
         url: place.icon,
         size: new google.maps.Size(71, 71),

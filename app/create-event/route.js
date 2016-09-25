@@ -36,6 +36,7 @@ export default Ember.Route.extend({
           restaurantName: $(".pac-input").val(),
           address: $(".address-input").val(),
           time: Date.parse($(".date-dropper").val() + " " + $(".time-dropper").val() + " " + "GMT")/1000,
+          participants: $(".participants-input").val(),
           website: $(".website-input").val(),
           imageUrl: $('.image-input').prop('src'),
           placeId: $('#place-id').val(),

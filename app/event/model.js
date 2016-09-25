@@ -4,6 +4,7 @@ export default DS.Model.extend({
   restaurantName: DS.attr('string'),
   address: DS.attr('string'),
   time: DS.attr('number'),
+  participants: DS.attr('number'),
   website: DS.attr('string'),
   imageUrl: DS.attr('string'),
   category: DS.attr('string'),

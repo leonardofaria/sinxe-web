@@ -4,29 +4,37 @@
 
   <h2>Add new event</h2>
 
+  <label>Establishment name</label>
   {{place-autocomplete-field
     value=restaurant
     handlerController=this
     inputClass='pac-input'
     focusOutCallback="done"
     placeChangedCallback="placeChanged"
-    placeholder="Restaurant Name"
+    placeholder="Type a name of restaurant or pub, for example"
     types='establishment'
     withGeoLocate=true
   }}
 
-  {{input value=address placeholder="Address" class="address-input"}}
+  <label class="hide address-label">Address (you can edit if need)</label>
+  {{input value=address placeholder="Address" class="hide address-input"}}
 
   <div class="map-preview preview">
     <div id="map" style="height:200px;"></div>
   </div>
 
+  <label>Date</label>
   {{input value=date placeholder="Date" class="date-dropper"}}
 
+  <label>Time</label>
   {{input value=time placeholder="Time" class="time-dropper"}}
+
+  <label>Participants</label>
+  {{input type="tel" value=participants class="participants-input" placeholder="Number of people you wanna meet"}}
 
   {{input value=website placeholder="Website" class="hide"}}
 
+  <label>Establishment category</label>
   <div class="select">
     <select class="category-input" value="target.value">
       <option value="" hidden>Category</option>
