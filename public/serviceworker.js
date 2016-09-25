@@ -61,11 +61,11 @@ self.addEventListener('push', function(event) {
   console.log('Push message received');
   var notificationTitle = 'New Message';
   const notificationOptions = {
-    body: 'Push mesage received',
-    icon: './images/icon-192x192.png',
-    tag: 'simple-push-demo-notification',
+    body: 'You have a new message!',
+    icon: 'icons/launcher-icon-3x.png',
+    tag: 'simple-push-notification',
     data: {
-      url: 'http://ninjacoders.info'
+      url: 'https://sinxe-d61e7.firebaseapp.com/'
     }
   };
 
