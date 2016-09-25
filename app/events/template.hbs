@@ -1,6 +1,10 @@
 <div class="place" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(36, 41, 63, 0.8) 100%), url({{model.imageUrl}})">
   <div class="description">
-    <h2>{{model.restaurantName}}</h2>
+    <h2>
+      <a href="{{model.website}}">
+        {{model.restaurantName}} <span class="fa fa-chevron-circle-right"></span>
+      </a>
+    </h2>
     <h3><span>{{model.category}}</span> - <span>Aug 12 8:00</span></h3>
   </div>
 </div>
