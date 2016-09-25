@@ -6,9 +6,7 @@
 <nav class="navigation menu">
   <ul>
   {{#if session.isAuthenticated}}
-    <li><a {{action "signOut"}}>Sign out ({{session.currentUser.displayName}})</a></li>
-  {{else}}
-    <li><a {{action "signIn" "facebook"}}>Sign in with Facebook</a></li>
+    <li><a href="#" {{action "signOut"}}>Sign out ({{session.currentUser.displayName}})</a></li>
   {{/if}}
   <li>{{link-to 'Add new event' 'create-event'}}</li>
   <li>{{link-to 'Events' 'choices'}}</li>

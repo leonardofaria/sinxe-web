@@ -3,7 +3,7 @@
 </div>
 
 {{#unless session.isAuthenticated}}
-  <a {{action "signIn" "facebook"}} class="cta">
+  <a href="#" {{action "signIn" "facebook"}} class="cta">
     <i class="fa fa-facebook"></i> <span>Start with Facebook</span>
   </a>
 {{/unless}}
