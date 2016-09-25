@@ -1,9 +1,10 @@
 <div class="form">
   <img src="{{avatar}}" class="avatar center">
 
+  <label>Professional Area</label>
   <div class="select">
     <select onchange={{action (mut model.occupation) value="target.value"}}>
-      <option value="" hidden>Position</option>
+      <option value="" hidden>Select</option>
       {{#each positionList as |position index|}}
 
         <option value={{math index "+" 1}} selected={{if (is-equal model.occupation (math index "+" 1)) 'selected' ''}}>{{position.name}}</option>
@@ -11,7 +12,8 @@
     </select>
   </div>
 
-  {{textarea value=model.bio placeholder="Bio"}}
+  <label>Bio</label>
+  {{textarea value=model.bio placeholder="Describe your self in 140 characters"}}
 
   <button {{action "updateUser"}} class="btn">Save</button>
 </div>
