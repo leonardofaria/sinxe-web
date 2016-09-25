@@ -4,7 +4,7 @@
   <span>Who is coming</span><br/>
   <div class="users">
     {{#each users as |user index|}}
-      <div style="background-image: url({{user.photoUrl}})" class="avatar"></div>
+      {{#link-to 'biography' user.id}}<div style="background-image: url({{user.photoUrl}})" class="avatar"></div>{{/link-to}}
     {{/each}}
   </div>
 </div>
