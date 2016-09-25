@@ -15,6 +15,7 @@ module.exports = function(defaults) {
   app.import('vendor/jquery.jTinder.js');
   app.import('vendor/timedropper.min.js');
   app.import('vendor/datedropper.min.js');
+  app.import('vendor/jquery.timeago.js');
 
   //
   // If you need to use different assets in different
