@@ -16,9 +16,9 @@ module.exports = function(environment) {
 
     firebase: {
       apiKey: process.env.FIREBASE_KEY,
-      authDomain: 'sinxe-d61e7.firebaseapp.com',
-      databaseURL: 'https://sinxe-d61e7.firebaseio.com',
-      storageBucket: 'sinxe-d61e7.appspot.com',
+      authDomain: process.env.AUTHDOMAIN,
+      databaseURL: process.env.DATABASE,
+      storageBucket: process.env.STORAGE,
     },
 
     torii: {
